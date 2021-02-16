@@ -6,7 +6,7 @@ get_current_month = function () {
 
 
 var horas = 160
-var salario_hora = 14.60
+var salario_hora = 32
 var taxa_salario = 1.0 - 0.15 
 
 var comissao = 0.03
@@ -20,6 +20,4 @@ calc_salario = function () {
     return 'pagamento do mes ' + get_current_month() + ' ' + pagamento_final.toFixed(2);
 };
 
-console.log(calc_salario())
-var horas = 160 * 2
 console.log(calc_salario())
