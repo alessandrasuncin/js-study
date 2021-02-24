@@ -1,0 +1,35 @@
+<html>
+    <body>
+        <canvas id="folha" width="600" height="500"></canvas> 
+        
+        <script>
+            var folhaDesenho = document.getElementById("folha");
+            var areaDesenho = folhaDesenho.getContext("2d");
+
+            var larguraCampo = 600;
+            var alturaCampo = 500;
+            var larguraLinha = 5;
+            var larguraBola = 5;
+            var alturaBola = 5
+            var alturaRaquete = 50;
+
+            areaDesenho.fillStyle = '#ff99c2'; //cor do campo
+            areaDesenho.fillRect(0, 0, larguraCampo, alturaCampo); //ponto x, ponto y, largura, altura
+
+            //Rede
+            areaDesenho.fillStyle = '#ffffff'; //cor branca para a redinha
+            areaDesenho.fillRect(larguraCampo/2 - larguraLinha/2, 0, larguraBola, alturaCampo); //criando a divisao do player1 vs player2, a largura da rede sera 5, dividir o campo e a rede na metade 300 e 2.5 resultando em 297.5
+
+            //Raquete1
+            areaDesenho.fillRect(0, alturaCampo/2 - alturaRaquete/2, larguraLinha, alturaRaquete); //o ponto y foi escolhido apenas temporario, porque a raquete ira mover 
+            
+            //Raquete2
+            areaDesenho.fillRect(larguraCampo - larguraLinha, alturaCampo/2 - alturaRaquete/2, larguraLinha, alturaRaquete)
+
+            //Bola
+            areaDesenho.fillRect(146.25, 247.5, larguraBola, alturaBola)
+
+
+        </script>
+    </body>
+</html>
