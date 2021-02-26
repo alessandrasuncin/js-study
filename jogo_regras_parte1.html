@@ -1,0 +1,50 @@
+<html>
+    <body>
+        <canvas id="folha" width='600' height='500'></canvas>
+
+        <script>
+            window.onload = function() {
+                setInterval(executar, 1000 / 30); //30 frames por minuto
+            }
+
+            var posicaoBolaX = posicaoBolaY = 10;
+            var velocidadeBolaPosicaoX = velocidadeBolaPosicaoY = 4; //velocidade bola
+            
+            function executar(){
+        
+                var folhaDesenho = document.getElementById('folha');
+                var areaDesenho = folhaDesenho.getContext("2d");
+
+                var larguraCampo = 600;
+                var alturaCampo = 500;
+                var larguraRede = 5;
+
+                var diametroBola = 10;
+
+                areaDesenho.fillStyle = "#ff99c2"; //cor rosa
+
+                areaDesenho.fillRect(0, 0, larguraCampo, alturaCampo);
+
+                areaDesenho.fillStyle = "#ffffff"; //cor branca
+                areaDesenho.fillRect(larguraCampo / 2 - larguraRede / 2, 0, larguraRede, alturaCampo)
+            
+                //desenho bola
+                areaDesenho.fillRect(posicaoBolaX - diametroBola / 2, posicaoBolaY - diametroBola / 2, diametroBola, diametroBola);
+
+                posicaoBolaX = posicaoBolaX + velocidadeBolaPosicaoX;
+                posicaoBolaY = posicaoBolaY + velocidadeBolaPosicaoY;
+
+                // Verifica Lateral superior
+                if(posicaoBolaY < 0 && velocidadeBolaPosicaoY < 0){
+                    velocidadeBolaPosicaoY = -velocidadeBolaPosicaoY; //invertendo o sinal para que a bola possa rebater e voltar
+                }
+
+                //Verifica Lateral inferior
+                if(posicaoBolaY > alturaCampo && velocidadeBolaPosicaoY > 0) {
+                    velocidadeBolaPosicaoY = -velocidadeBolaPosicaoY;
+                }
+            }
+
+        </script>
+    </body>
+</html>
